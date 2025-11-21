@@ -198,8 +198,8 @@ const WordOfTheDayPoster = ({
     ctx.save();
     ctx.textAlign = "center";
     ctx.fillStyle = COLORS.orange;
-    ctx.font = `800 120px 'Inter', system-ui, sans-serif`;
-    ctx.fillText(word, centerX, cardY + 450);
+    ctx.font = `800 80px 'Inter', system-ui, sans-serif`;
+    ctx.fillText(word, centerX, cardY + 430);
     ctx.restore();
 
     // Meaning label
