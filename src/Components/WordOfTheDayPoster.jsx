@@ -30,24 +30,6 @@ const BG_LETTERS = [
 ];
 
 /**
- * Draw a rounded rectangle path on canvas.
- */
-function drawRoundedRect(ctx, x, y, width, height, radius) {
-  const r = Math.min(radius, width / 2, height / 2);
-  ctx.beginPath();
-  ctx.moveTo(x + r, y);
-  ctx.lineTo(x + width - r, y);
-  ctx.quadraticCurveTo(x + width, y, x + width, y + r);
-  ctx.lineTo(x + width, y + height - r);
-  ctx.quadraticCurveTo(x + width, y + height, x + width - r, y + height);
-  ctx.lineTo(x + r, y + height);
-  ctx.quadraticCurveTo(x, y + height, x, y + height - r);
-  ctx.lineTo(x, y + r);
-  ctx.quadraticCurveTo(x, y, x + r, y);
-  ctx.closePath();
-}
-
-/**
  * Word-wrapping helper: splits text into lines that fit maxWidth
  * and draws them starting at (x,y).
  */
@@ -176,20 +158,8 @@ const WordOfTheDayPoster = ({
     }
 
     // 2. MAIN WHITE CARD
-    const cardMarginX = 90;
     const cardMarginTop = 210;
-    const cardMarginBottom = 260;
-    const cardX = cardMarginX;
     const cardY = cardMarginTop;
-    const cardW = width - cardMarginX * 2;
-    const cardH = height - cardMarginTop - cardMarginBottom;
-
-    // ctx.save();
-    // ctx.fillStyle = COLORS.white;
-    // drawRoundedRect(ctx, cardX, cardY, cardW, cardH, 60);
-    // ctx.fill();
-    // ctx.restore();
-
     const centerX = width / 2;
 
     // 4. TEXT INSIDE CARD
@@ -233,7 +203,6 @@ const WordOfTheDayPoster = ({
     ctx.font = `600 38px 'Inter', system-ui, sans-serif`;
     drawWrappedText(ctx, example, centerX, cardY + 750, 700, 25);
     ctx.restore();
-
   }, [word, meaning, example, bgImage, footerTitle, footerSubtitle]);
 
   const handleDownload = () => {
