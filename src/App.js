@@ -10,6 +10,12 @@ const App = () => {
             <WordOfTheDayPoster backgroundImageUrl={"/WORD WARRIORS LP.jpg"} />
           }
         />
+        <Route
+          path="/kg-word"
+          element={
+            <WordOfTheDayPoster backgroundImageUrl={"/WORD WARRIORS kg.jpg"} />
+          }
+        />
       </Routes>
     </div>
   );
